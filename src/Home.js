@@ -19,17 +19,14 @@ const Home = () => {
             .then(data => {
                 console.log(data);
                 setBlogs(data)
+                setIsPending(false);
             })},[]);
      
     return (
         <div className="home">
             {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>}
-            {/* <BlogList blogs={blogs}  title="all" handleDelete={handleDelete}></BlogList> */}
 
-            {/* <BlogList style={{
-                color:"green"
-            }}
-             blogs={blogs.filter((blog) => blog.autor=== "mario")} title ="title1"></BlogList> */}
+            {isPending && <div>Loading...</div>}
 
 
         </div>
