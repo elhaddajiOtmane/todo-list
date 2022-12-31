@@ -1,19 +1,16 @@
-
-import './style/App.css';
-import NavBar from './components/Navbar'
-import Lop from './components/Body'
-import Home from './Home'
-
-function App() {
+import React from 'react';
+import Eleve from './components/Eleve';
+export default function App() {
+  const eleves=[
+    {nom:"Hamdi",prenom:"Sami",age:"13"},
+    {nom:"Mahdi",prenom:"Amine",age:"18"},
+    {nom:"Fahmi",prenom:"Omar",age:"12"}
+  ];
   return (
- 
-    <div className="App">
-         <NavBar/>
-         <Home></Home>
-         <Lop></Lop>
-
+    <div>
+      {
+        eleves.map((eleve,index)=><Eleve key={index} nom={eleve.nom} prenom={eleve.prenom} age={eleve.age}/>)
+      }
     </div>
   );
 }
-
-export default App;
